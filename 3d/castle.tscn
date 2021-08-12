@@ -1,0 +1,151 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://dark_material.tres" type="Material" id=1]
+[ext_resource path="res://red_material.tres" type="Material" id=2]
+[ext_resource path="res://player.tscn" type="PackedScene" id=3]
+
+[node name="world" type="Spatial"]
+
+[node name="CSGCombiner" type="CSGCombiner" parent="."]
+use_collision = true
+
+[node name="columns" type="CSGPolygon" parent="CSGCombiner"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 3, 0, 0 )
+polygon = PoolVector2Array( -2.91053, 2.48398, 0, 2, 4, 0, -3, 0 )
+material = ExtResource( 1 )
+
+[node name="column_sub_cylinder" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -5.68248e-08, -1.3, 0, 1, -4.37114e-08, 0, 0, 0, 0.8, 0, 1.12545, 0 )
+operation = 2
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="column_sub_box" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.3, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0.123297, 0 )
+operation = 2
+width = 6.0
+material = ExtResource( 1 )
+
+[node name="column_sub_cylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -5.68248e-08, -1.3, 0, 1, -4.37114e-08, 0, 0, 0, 0.8, 0, 1.12545, 2 )
+use_in_baked_light = true
+operation = 2
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="column_sub_box2" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.3, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0.123297, 2 )
+operation = 2
+width = 6.0
+material = ExtResource( 1 )
+
+[node name="column_sub_cylinder3" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -5.68248e-08, -1.3, 0, 1, -4.37114e-08, 0, 0, 0, 0.8, 0, 1.12545, -2 )
+operation = 2
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="column_sub_box3" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.3, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 0.123297, -2 )
+operation = 2
+width = 6.0
+material = ExtResource( 1 )
+
+[node name="walls" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.54, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 6 )
+width = 6.0
+height = 4.0
+depth = 6.0
+material = ExtResource( 1 )
+
+[node name="wall_sub_box" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1.44, 0, 0, 0, 1, 0, 0, 0, 0.9, 0, 1.7, 6 )
+operation = 2
+width = 6.0
+height = 4.0
+depth = 6.0
+material = ExtResource( 1 )
+
+[node name="wall_sub_window" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -3.93403e-08, -1.2, 0, 0.9, -5.24537e-08, 0, 0, 0, 0.9, 0, 1.67545, 6 )
+operation = 2
+height = 10.0
+material = ExtResource( 1 )
+
+[node name="wall_sub_gate" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1.71962e-15, 5.24537e-08, 0.9, 0.9, -5.24537e-08, 0, 3.93403e-08, 1.2, -3.93403e-08, 0, 1.4031, 5 )
+operation = 2
+radius = 2.0
+height = 4.0
+material = ExtResource( 1 )
+
+[node name="tower_platform" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 0.53033, 0, 0.53033, 0, 0.5, 0, -0.53033, 0, 0.53033, 0, 8.62452, 6 )
+width = 6.0
+depth = 6.0
+material = ExtResource( 1 )
+
+[node name="tower" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.4031, 6 )
+radius = 2.0
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="tower_sub_window" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.9, 0, 0, 0, 1.2, 0, 0, 0, 0.9, 0, 6.4031, 6 )
+operation = 2
+radius = 2.0
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="tower_sub_cylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( -3.93403e-08, -1.2, 0, 0.9, -5.24537e-08, 0, 0, 0, 0.9, 0, 6.4031, 6 )
+operation = 2
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="tower_sub_window2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1.71962e-15, 5.24537e-08, 0.9, 0.9, -5.24537e-08, 0, 3.93403e-08, 1.2, -3.93403e-08, 0, 6.4031, 6 )
+operation = 2
+height = 6.0
+material = ExtResource( 1 )
+
+[node name="roof_cylinder" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 1.2, 0, 0, 0, 1, 0, 0, 0, 1.2, 0, 9.89333, 6 )
+radius = 2.37707
+material = ExtResource( 1 )
+
+[node name="roof_cylinder2" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.8, 0, 0, 0, 1, 0, 0, 0, 0.8, 0, 10.7841, 6 )
+radius = 2.37707
+material = ExtResource( 1 )
+
+[node name="roof_cylinder3" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.4, 0, 0, 0, 1, 0, 0, 0, 0.4, 0, 11.7332, 6 )
+radius = 2.37707
+material = ExtResource( 1 )
+
+[node name="roof_cylinder4" type="CSGCylinder" parent="CSGCombiner"]
+transform = Transform( 0.1, 0, 0, 0, 1, 0, 0, 0, 0.1, 0, 12.6876, 6 )
+radius = 2.37707
+material = ExtResource( 1 )
+
+[node name="floor" type="CSGBox" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 3 )
+width = 18.0
+height = 6.0
+depth = 18.0
+material = ExtResource( 2 )
+
+[node name="floor_sub_sphere" type="CSGSphere" parent="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4, 3.08877 )
+operation = 1
+radius = 10.0
+radial_segments = 20
+material = ExtResource( 2 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.847666, -0.36193, -0.387903, 0.13176, -0.564634, 0.814756, -0.513908, -0.741751, -0.430933, 0, 5.77569, -4.36121 )
+shadow_enabled = true
+
+[node name="player" parent="." instance=ExtResource( 3 )]
