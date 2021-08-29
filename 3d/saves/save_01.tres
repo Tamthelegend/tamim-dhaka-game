@@ -5,3 +5,4 @@
 [resource]
 script = ExtResource( 1 )
 egg = true
+point = 0

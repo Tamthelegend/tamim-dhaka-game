@@ -5,6 +5,7 @@ var direction = Vector3.FORWARD
 var velocity = Vector3.ZERO
 var acceleration = 10
 var speed = 5
+var point = 0
 var y_velocity = 0
 var gravity = 20
 var angular_acceleration = 7
@@ -13,13 +14,16 @@ onready var mesh = $player_animations
 var save_path = SAVE_DIR + "save.dat"
 var egg = true
 export(Script) var game_save_class
-var save_vars = [egg]
 
 
+
+func _ready():
+	load_world()
 	
 func save_world():
 	var new_save = game_save_class.new()
 	new_save.egg = egg
+	new_save.point = point
 	
 	var dir = Directory.new()
 	if not dir.dir_exists("res://saves/"):
@@ -44,6 +48,11 @@ func _physics_process(delta):
 		get_parent().get_node("CSGSphere").show()
 	else:
 		get_parent().get_node("CSGSphere").hide()
+		
+	
+		
+
+	
 	
 	if Input.is_action_pressed("forwards") or Input.is_action_pressed("backwards") or Input.is_action_pressed("left") or Input.is_action_pressed("right"):
 		var camera_rotation = $camera_root/camera_h.global_transform.basis.get_euler().y
@@ -66,6 +75,7 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("ui_cancel"):
 		get_tree().quit()
+		save_world()
 	if Input.is_action_just_pressed("kill"):
 		egg = false
 	mesh.rotation.y = lerp_angle(mesh.rotation.y, atan2(direction.x, direction.z), delta * angular_acceleration)
@@ -79,8 +89,10 @@ func _physics_process(delta):
 
 
 func _on_Area_body_entered(body):
+	point = 1
 	save_world()
-	print("saved")
+	print(point)
+	
 	
 
 

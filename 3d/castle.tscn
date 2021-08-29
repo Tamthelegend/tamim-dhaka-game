@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://dark_material.tres" type="Material" id=1]
 [ext_resource path="res://red_material.tres" type="Material" id=2]
@@ -9,9 +9,6 @@
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0, 1, 0.133333, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-albedo_color = Color( 0.196078, 0, 1, 1 )
 
 [node name="world" type="Spatial"]
 
@@ -167,23 +164,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.33474, 0.422494, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.610022, 0 )
 shape = SubResource( 1 )
 
-[node name="Area2" type="Area" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.60831, 0.422494, 0 )
-
-[node name="CollisionShape" type="CollisionShape" parent="Area2"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.610022, 0 )
-shape = SubResource( 1 )
-
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.625, 0, 0 )
 material = SubResource( 2 )
-
-[node name="CSGBox2" type="CSGBox" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.61649, 0, 0 )
-material = SubResource( 3 )
 
 [node name="CSGSphere" type="CSGSphere" parent="."]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 0.5, 0, 1.12472, -4.291 )
 
 [connection signal="body_entered" from="Area" to="player" method="_on_Area_body_entered"]
-[connection signal="body_entered" from="Area2" to="player" method="_on_Area2_body_entered"]
